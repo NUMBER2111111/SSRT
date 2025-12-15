@@ -1,0 +1,60 @@
+{
+  "name": "SSRT - Semantic Space Recovery Tool",
+  "short_name": "SSRT",
+  "description": "Triple-redundant disk space recovery tool. Free up disk space while preserving data with absolute integrity.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["productivity", "utilities", "business"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Get Started",
+      "short_name": "Start",
+      "description": "Start your SSRT recovery",
+      "url": "/#get-started",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "View Pricing",
+      "short_name": "Pricing",
+      "description": "View SSRT pricing",
+      "url": "/#pricing",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}
+
+

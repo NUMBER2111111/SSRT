@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSRT Engineering | Enterprise-Grade Architecture</title>
+    <meta name="description" content="SSRT Engineering - Advanced semantic file system architecture with triple redundancy, deterministic recovery, and human-readable ledgers.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ssrt-green': '#10b981',
+                        'ssrt-dark': '#0a0a0a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+        .inner-box {
+            border-radius: 0.75rem;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Header/Navigation -->
+    <header class="border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-sm text-gray-400 hover:text-ssrt-green">SSRT</a>
+                <div class="text-2xl font-bold text-ssrt-green">Engineering</div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="px-4 py-2 border border-gray-700 text-gray-300 rounded-lg hover:border-ssrt-green hover:text-ssrt-green transition">
+                    ← Back to Home
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-20">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 text-center">
+                The <span class="text-ssrt-green">Engineering</span> Behind SSRT
+            </h1>
+            <p class="text-2xl text-gray-300 mb-8 text-center max-w-4xl mx-auto">
+                This isn't just software. This is <strong class="text-ssrt-green">architectural discipline</strong>.
+            </p>
+            <p class="text-xl text-gray-400 mb-12 text-center max-w-3xl mx-auto">
+                Every design decision serves one purpose: <strong class="text-white">guaranteed meaningful persistence</strong>. 
+                No compromises. No shortcuts. Just engineering that works.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why This Engineering Matters -->
+    <section class="bg-gradient-to-r from-ssrt-green to-green-600 py-16 mb-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6 text-black">Why This Engineering Matters</h2>
+                <div class="space-y-6 text-lg md:text-xl text-black leading-relaxed">
+                    <p>
+                        SSRT represents a new standard in data integrity. Built on intentional architecture rather than assumptions, it ensures that every write is verified, every read is checked, and every system state remains fully recoverable. This is engineering designed from day one for meaningful, guaranteed persistence.
+                    </p>
+                    <p class="font-semibold">
+                        With intent-driven storage, triple-write durability, and continuous self-verification, SSRT delivers a level of reliability that traditional systems were never built to achieve. It doesn't just protect data — it preserves truth.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 mt-12">
+                    <div class="bg-black bg-opacity-30 inner-box p-6">
+                        <h3 class="text-xl font-bold mb-2 text-black">Intent-Driven</h3>
+                        <p class="text-black">Store by meaning, not just location</p>
+                    </div>
+                    <div class="bg-black bg-opacity-30 inner-box p-6">
+                        <h3 class="text-xl font-bold mb-2 text-black">Triple-Write</h3>
+                        <p class="text-black">Default redundancy, not optional</p>
+                    </div>
+                    <div class="bg-black bg-opacity-30 inner-box p-6">
+                        <h3 class="text-xl font-bold mb-2 text-black">Self-Verifying</h3>
+                        <p class="text-black">Every operation is checked</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Overview -->
+    <section class="bg-gray-900 py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center">The Architecture</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Triple Redundancy -->
+                    <div class="bg-black border-2 border-ssrt-green inner-box p-8">
+                        <h3 class="text-2xl font-bold mb-4">Triple-Write Durability</h3>
+                        <p class="text-gray-400 mb-4 italic">Default, not optional. Every commit writes three times.</p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span><strong>Primary:</strong> Canonical structured form - your source of truth</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span><strong>Shadow:</strong> Redundant copy in separate location/device/partition</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span><strong>Ledger:</strong> Append-only human-readable index + content pointers</span>
+                            </li>
+                        </ul>
+                        <div class="mt-4 p-4 bg-gray-900 inner-box">
+                            <p class="text-sm text-ssrt-green font-semibold">
+                                Result: If primary fails, shadow takes over. If both fail, ledger rebuilds everything.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Intent Objects -->
+                    <div class="bg-black border-2 border-ssrt-green inner-box p-8">
+                        <h3 class="text-2xl font-bold mb-4">Intent Objects</h3>
+                        <p class="text-gray-400 mb-4 italic">Every saved thing gets a manifest. No exceptions.</p>
+                        <div class="bg-gray-900 inner-box p-4 font-mono text-xs mb-4">
+                            <div class="text-ssrt-green">id, type, intent, tags/entities,<br>
+                            created_at, updated_at, parent/lineage,<br>
+                            hash, pointers</div>
+                        </div>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span>Store by <strong>why it exists</strong>, not just where it lives</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span>Every object knows its lineage and purpose</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span>Hash-verified integrity on every operation</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Truth Preservation -->
+                    <div class="bg-black border-2 border-ssrt-green inner-box p-8">
+                        <h3 class="text-2xl font-bold mb-4">Truth Preservation</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span>Every write produces a canonical, verifiable record</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span>Immutable transaction logs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span>Cryptographic integrity guarantees</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Deterministic Recovery -->
+                    <div class="bg-black border-2 border-ssrt-green inner-box p-8">
+                        <h3 class="text-2xl font-bold mb-4">Deterministic Recovery</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span>Restore state from redundant copies without guessing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span>Automatic consistency verification</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-ssrt-green mr-2">-</span>
+                                <span>Point-in-time recovery capabilities</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Human Rebuild Path -->
+    <section class="container mx-auto px-6 py-20">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-8 text-center">Human Rebuild Path</h2>
+            <div class="bg-gray-900 border-2 border-ssrt-green inner-box p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-3xl font-bold mb-4">Plain-Text Ledger System</h3>
+                </div>
+                <p class="text-xl text-gray-300 mb-6 text-center max-w-3xl mx-auto">
+                    SSRT maintains a human-readable, plain-text/JSON ledger that allows complete system recovery even if all tooling fails.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mt-8">
+                    <div class="text-center">
+                        <h4 class="font-semibold mb-2">JSON Format</h4>
+                        <p class="text-sm text-gray-400">Machine-readable and human-editable</p>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-semibold mb-2">Complete State</h4>
+                        <p class="text-sm text-gray-400">Full system state in one file</p>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-semibold mb-2">Tool-Independent</h4>
+                        <p class="text-sm text-gray-400">Recover without SSRT tools</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="bg-gray-900 py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center">Technical Specifications</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-black border border-gray-800 inner-box p-6">
+                        <h3 class="text-xl font-bold mb-4 text-ssrt-green">Storage Architecture</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Multi-location redundant storage</li>
+                            <li>• Automatic failover mechanisms</li>
+                            <li>• Checksum-verified integrity</li>
+                            <li>• Transactional consistency</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-black border border-gray-800 inner-box p-6">
+                        <h3 class="text-xl font-bold mb-4 text-ssrt-green">Recovery Mechanisms</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Deterministic state restoration</li>
+                            <li>• Multi-copy verification</li>
+                            <li>• Ledger-based rebuild</li>
+                            <li>• Zero data loss guarantee</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-black border border-gray-800 inner-box p-6">
+                        <h3 class="text-xl font-bold mb-4 text-ssrt-green">Security Features</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Cryptographic checksums</li>
+                            <li>• Immutable transaction logs</li>
+                            <li>• Integrity verification</li>
+                            <li>• Canonical record generation</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-black border border-gray-800 inner-box p-6">
+                        <h3 class="text-xl font-bold mb-4 text-ssrt-green">Resilience Contract</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Crash-resistant design</li>
+                            <li>• WAL mode database</li>
+                            <li>• Atomic operations</li>
+                            <li>• Human-readable fallback</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IP Protection Notice -->
+    <section class="container mx-auto px-6 py-20">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gray-900 border-2 border-yellow-600 inner-box p-8">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold mb-4">Intellectual Property Protection</h3>
+                    <p class="text-gray-300 mb-6">
+                        SSRT's architecture, algorithms, and implementation details are proprietary and protected by intellectual property laws. 
+                        This page showcases engineering principles and capabilities without revealing proprietary implementation details.
+                    </p>
+                    <p class="text-ssrt-green font-semibold text-lg">
+                        All rights reserved. Unauthorized reproduction or reverse engineering is prohibited.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Engineering Difference -->
+    <section class="container mx-auto px-6 py-20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-8 text-center">Why This Engineering Is Different</h2>
+            <div class="bg-gray-900 border-2 border-ssrt-green inner-box p-8">
+                <div class="space-y-6 text-lg text-gray-300">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Most Systems:</h3>
+                        <p class="text-gray-400">"Hope it works. Maybe add backups later. If it breaks, good luck."</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-ssrt-green mb-2">SSRT:</h3>
+                        <p class="text-white">"Every write is triple-verified. Every read is checked. Every state can be rebuilt from the ledger. Failure is not an option."</p>
+                    </div>
+                    <div class="border-t border-gray-700 pt-6 mt-6">
+                        <p class="text-center text-xl text-ssrt-green font-semibold">
+                            This is engineering that <strong class="text-white">guarantees</strong> meaningful persistence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gray-900 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Get Engineering That Works</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                SSRT isn't just software. It's a <strong class="text-ssrt-green">resilience contract</strong> that guarantees your data's integrity.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="index.html#what-is-ssrt" class="px-6 py-3 border border-ssrt-green text-ssrt-green rounded-lg hover:bg-ssrt-green hover:text-black transition">
+                    Read The Spec
+                </a>
+                <a href="index.html#pricing" class="px-8 py-4 bg-ssrt-green text-black rounded-lg font-semibold hover:bg-green-400 transition">
+                    Get SSRT Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p class="mb-4">
+                <strong class="text-white">SSRT</strong> - Semantic Space Recovery Tool<br>
+                Created by <strong class="text-white">The Cognitive Rebel</strong><br>
+                Part of <strong class="text-white">AcuTriOne Sovereign Systems</strong>
+            </p>
+            <p>Proprietary License - All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
+

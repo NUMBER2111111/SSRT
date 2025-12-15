@@ -1,0 +1,131 @@
+═══════════════════════════════════════════════════════════════
+  DEPLOY SSRT TO VERCEL - WEB INTERFACE INSTRUCTIONS
+═══════════════════════════════════════════════════════════════
+
+Since Node.js isn't installed, we'll use the Vercel website.
+
+STEP 1: LOG IN TO VERCEL
+─────────────────────────
+1. In your browser, go to: https://vercel.com/number2111111s-projects
+2. Click one of these to log in:
+   - "Continue with Email"
+   - "Continue with Google" 
+   - "Continue with GitHub"
+3. If you don't have an account, click "Sign Up" first
+
+STEP 2: AFTER LOGGING IN
+─────────────────────────
+You should see your Vercel dashboard with your projects.
+
+STEP 3: ADD NEW PROJECT
+─────────────────────────
+1. Click the big "Add New Project" button (usually top right or center)
+2. You'll see options to import a project
+
+STEP 4: DEPLOY OPTIONS
+─────────────────────────
+
+OPTION A: If you have GitHub/GitLab
+────────────────────────────────────
+1. Click "Import Git Repository"
+2. Connect your GitHub account (if not already connected)
+3. Find your repository (or create a new one)
+4. Click "Import"
+5. Vercel will auto-detect your vercel.json
+6. Click "Deploy"
+
+OPTION B: If you DON'T have Git (Use this!)
+────────────────────────────────────────────
+Since you don't have Node.js, the easiest way is:
+
+1. Create a GitHub account (if you don't have one): github.com
+2. Create a new repository on GitHub
+3. Upload your F:\ssrt-deployment folder to GitHub
+4. Then import it in Vercel (Option A above)
+
+OR use Vercel's drag-and-drop (if available):
+1. Look for "Deploy without Git" or "Import Project"
+2. Drag your F:\ssrt-deployment folder
+3. Click "Deploy"
+
+STEP 5: CONFIGURE PROJECT
+──────────────────────────
+When Vercel asks for settings:
+- Framework Preset: Select "Other" or "Static"
+- Root Directory: Leave as "." (or blank)
+- Build Command: Leave EMPTY
+- Output Directory: Leave EMPTY
+- Click "Deploy"
+
+STEP 6: WAIT FOR DEPLOYMENT
+────────────────────────────
+- Vercel will build and deploy your site
+- Takes 1-2 minutes
+- You'll see progress in real-time
+
+STEP 7: GET YOUR URL
+────────────────────
+After deployment:
+- You'll see: "Congratulations! Your project has been deployed"
+- Your site URL: ssrt-deployment-xxxxx.vercel.app
+- Click it to see your live site!
+
+STEP 8: SET ENVIRONMENT VARIABLES (IMPORTANT!)
+───────────────────────────────────────────────
+1. Click on your project name
+2. Click "Settings" tab (top menu)
+3. Click "Environment Variables" (left sidebar)
+4. Add these variables (from F:\SQUARE_PAY_API.json):
+
+   Name: SQUARE_APPLICATION_ID
+   Value: (copy from your JSON file)
+
+   Name: SQUARE_ACCESS_TOKEN
+   Value: (copy from your JSON file)
+
+   Name: SQUARE_LOCATION_ID
+   Value: (copy from your JSON file)
+
+   Name: SQUARE_ENVIRONMENT
+   Value: sandbox (or production)
+
+   Name: SALE_PRICE
+   Value: 29.99
+
+   Name: REGULAR_PRICE
+   Value: 49.00
+
+   Name: SALE_LIMIT
+   Value: 500
+
+   Name: CURRENT_SUBSCRIBERS
+   Value: 0
+
+   Name: SALE_ACTIVE
+   Value: true
+
+5. For each variable, check all environments (Production, Preview, Development)
+6. Click "Save"
+
+STEP 9: REDEPLOY
+────────────────
+1. Go to "Deployments" tab
+2. Click "..." menu on latest deployment
+3. Click "Redeploy"
+4. This applies your environment variables
+
+STEP 10: DONE!
+───────────────
+Your site is now live! Test it and make sure everything works.
+
+═══════════════════════════════════════════════════════════════
+  NEED HELP?
+═══════════════════════════════════════════════════════════════
+
+If you get stuck:
+1. Tell me what screen you're on
+2. Tell me what you see
+3. I'll guide you step by step!
+
+═══════════════════════════════════════════════════════════════
+

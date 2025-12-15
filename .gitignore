@@ -1,0 +1,33 @@
+node_modules/
+.vercel
+.DS_Store
+*.log
+
+# Secrets and API keys - NEVER COMMIT THESE
+SQUARE_PAY_API.json
+**/SQUARE_PAY_API.json
+*.key
+*.pem
+.env
+.env.local
+.env.production
+secrets/
+**/secrets/
+
+# Build outputs
+dist/
+build/
+*.exe
+*.dmg
+*.pkg
+*.apk
+*.ipa
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+

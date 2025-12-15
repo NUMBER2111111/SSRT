@@ -1,0 +1,69 @@
+═══════════════════════════════════════════════════════════════
+  FILES TO UPLOAD TO GITHUB - SSRT DEPLOYMENT
+═══════════════════════════════════════════════════════════════
+
+UPLOAD ALL FILES FROM: F:\ssrt-deployment
+
+✅ REQUIRED FILES (Upload These):
+─────────────────────────────────
+
+ROOT FILES:
+- index.html
+- engineering.html
+- package.json
+- vercel.json
+- manifest.json
+- sw.js
+- .gitignore
+- README.md
+
+API FOLDER:
+- api/server.js
+
+IOS FOLDER (entire folder):
+- ios/SSRT/SSRTApp.swift
+- ios/SSRT/ContentView.swift
+- ios/SSRT/Info.plist
+- ios/SSRT.xcodeproj/project.pbxproj
+
+ANDROID FOLDER (entire folder):
+- android/app/build.gradle
+- android/app/src/main/AndroidManifest.xml
+- android/app/src/main/java/com/acutrione/ssrt/MainActivity.kt
+- android/app/src/main/res/layout/activity_main.xml
+- android/app/src/main/res/values/strings.xml
+- android/app/src/main/res/values/colors.xml
+- android/app/src/main/res/values/themes.xml
+- android/build.gradle
+- android/settings.gradle
+
+DOCUMENTATION (Optional but helpful):
+- BUILD_ALL.md
+- COMPLETE_STATUS.md
+- PLATFORM_STATUS.md
+- PRODUCTION_READINESS.md
+- PAYMENT_SETUP.md
+- HOSTING_RECOMMENDATIONS.md
+- SOURCE_CODE_VERIFICATION.md
+
+❌ DO NOT UPLOAD (Already in .gitignore):
+─────────────────────────────────────────
+- node_modules/
+- .vercel/
+- *.log
+- SQUARE_PAY_API.json (secrets!)
+- .DS_Store
+
+═══════════════════════════════════════════════════════════════
+  QUICK UPLOAD INSTRUCTIONS
+═══════════════════════════════════════════════════════════════
+
+1. Go to: https://github.com/NUMBER2111111/SSRT
+2. Click "Add file" → "Upload files"
+3. Drag entire F:\ssrt-deployment folder
+4. GitHub will automatically exclude files in .gitignore
+5. Commit message: "Initial SSRT deployment site"
+6. Click "Commit changes"
+
+═══════════════════════════════════════════════════════════════
+
