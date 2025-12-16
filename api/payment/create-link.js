@@ -11,15 +11,19 @@ export default async function handler(req, res) {
   try {
     const { amount = 500, currency = "USD", name = "SSRT" } = req.body || {};
 
+    if (!process.env.SQUARE_LOCATION_ID) {
+      return res.status(500).json({ error: "Missing SQUARE_LOCATION_ID" });
+    }
+
     const idempotencyKey = crypto.randomUUID();
 
     const resp = await client.checkoutApi.createPaymentLink({
       idempotencyKey,
       quickPay: {
-        name,
+        name: name || "SSRT",
+        description: "SSRT Checkout",
         priceMoney: { amount, currency },
         locationId: process.env.SQUARE_LOCATION_ID,
-        description: `SSRT payment - $${(amount / 100).toFixed(2)}`,
       },
     });
 
