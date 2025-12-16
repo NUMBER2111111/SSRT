@@ -1,0 +1,8 @@
+{
+  "name": "ssrt-live",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "square": "^37.0.0"
+  }
+}
