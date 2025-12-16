@@ -19,6 +19,7 @@ export default async function handler(req, res) {
         name,
         priceMoney: { amount, currency },
         locationId: process.env.SQUARE_LOCATION_ID,
+        description: `SSRT payment - $${(amount / 100).toFixed(2)}`,
       },
     });
 
