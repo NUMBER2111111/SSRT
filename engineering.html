@@ -33,7 +33,7 @@
         <a href="/">Home</a>
         <a href="/engineering.html" style="color: #667eea; font-weight: bold;">Engineering</a>
         <button onclick="window.location.href='/#pricing'">Try for Free</button>
-        <a href="/#get-started">Get Started</a>
+        <a href="/#payment">Get Started</a>
       </div>
     </nav>
   </header>
@@ -127,7 +127,7 @@
       <h2>Ready to Get Started?</h2>
       <p>Experience the power of SSRT with our lifetime access offer.</p>
       <a href="/#pricing" class="btn">View Pricing</a>
-      <a href="/#payment" class="btn" style="background: #28a745; margin-left: 1rem;">Buy SSRT ($5)</a>
+      <button onclick="window.location.href='/#payment'" class="btn" style="background: #28a745; margin-left: 1rem; border: none; cursor: pointer;" id="buy-ssrt-eng">Buy SSRT ($5)</button>
     </section>
   </div>
 
@@ -137,6 +137,31 @@
     <p>Questions or comments? <a href="mailto:support@acutrione.com" style="color: #667eea;">support@acutrione.com</a></p>
     <p>Proprietary License - All Rights Reserved</p>
   </footer>
+
+  <script>
+    // Buy button handler for engineering page
+    const buyButtonHandler = async () => {
+      try {
+        const res = await fetch("/api/payment/create-link", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount: 500, currency: "USD", name: "SSRT" })
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Create-link failed");
+        if (!data.url) throw new Error("No payment URL returned");
+
+        window.location.href = data.url;
+      } catch (e) {
+        alert("Payment error: " + e.message);
+        console.error(e);
+      }
+    };
+
+    // Attach to buy button on engineering page
+    document.getElementById("buy-ssrt-eng")?.addEventListener("click", buyButtonHandler);
+  </script>
 </body>
 </html>
 
