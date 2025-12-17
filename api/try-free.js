@@ -1,17 +1,96 @@
 import crypto from "crypto";
+import fs from "fs";
+import path from "path";
 
 /**
  * Try for Free API Endpoint
- * Allows users to try SSRT for free once
- * Simple implementation - grants access immediately
+ * Allows users to try SSRT for free once per email per week
+ * Tracks email usage to prevent abuse
  */
 
-// Quantum-resistant hash function (same as payment endpoint)
+// Path to store email tracking data
+const TRACKING_FILE = path.join(process.cwd(), 'api', 'data', 'try-free-emails.json');
+
+// Ensure data directory exists
+function ensureDataDir() {
+  const dataDir = path.dirname(TRACKING_FILE);
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+}
+
+// Load email tracking data
+function loadTrackingData() {
+  try {
+    ensureDataDir();
+    if (fs.existsSync(TRACKING_FILE)) {
+      const data = fs.readFileSync(TRACKING_FILE, 'utf8');
+      return JSON.parse(data);
+    }
+  } catch (error) {
+    console.error('[ERROR] Failed to load tracking data:', error.message);
+  }
+  return {};
+}
+
+// Save email tracking data
+function saveTrackingData(data) {
+  try {
+    ensureDataDir();
+    fs.writeFileSync(TRACKING_FILE, JSON.stringify(data, null, 2), 'utf8');
+    return true;
+  } catch (error) {
+    console.error('[ERROR] Failed to save tracking data:', error.message);
+    return false;
+  }
+}
+
+// Check if email can use free trial (not used in last 7 days)
+function canUseFreeTrial(email, trackingData) {
+  const normalizedEmail = email.toLowerCase().trim();
+  const now = Date.now();
+  const oneWeekAgo = now - (7 * 24 * 60 * 60 * 1000); // 7 days in milliseconds
+
+  if (!trackingData[normalizedEmail]) {
+    return { allowed: true, reason: 'first_time' };
+  }
+
+  const lastUsed = trackingData[normalizedEmail].lastUsed;
+  if (lastUsed < oneWeekAgo) {
+    return { allowed: true, reason: 'week_passed' };
+  }
+
+  const daysRemaining = Math.ceil((lastUsed + (7 * 24 * 60 * 60 * 1000) - now) / (24 * 60 * 60 * 1000));
+  return { 
+    allowed: false, 
+    reason: 'recently_used',
+    daysRemaining: daysRemaining,
+    lastUsed: new Date(lastUsed).toISOString()
+  };
+}
+
+// Record email usage
+function recordEmailUsage(email, trackingData) {
+  const normalizedEmail = email.toLowerCase().trim();
+  if (!trackingData[normalizedEmail]) {
+    trackingData[normalizedEmail] = {
+      firstUsed: Date.now(),
+      lastUsed: Date.now(),
+      count: 1
+    };
+  } else {
+    trackingData[normalizedEmail].lastUsed = Date.now();
+    trackingData[normalizedEmail].count = (trackingData[normalizedEmail].count || 0) + 1;
+  }
+  return trackingData;
+}
+
+// Quantum-resistant hash function
 function quantumHash(data) {
   const dataStr = typeof data === 'string' ? data : JSON.stringify(data);
   return crypto.createHash('sha256')
     .update(dataStr)
-    .update(crypto.randomBytes(32)) // Add entropy for quantum resistance
+    .update(crypto.randomBytes(32))
     .digest('hex');
 }
 
@@ -38,10 +117,9 @@ function validateRequest(req) {
 }
 
 export default async function handler(req, res) {
-  // Transparent security validation - user never knows
+  // Transparent security validation
   const validation = validateRequest(req);
   if (!validation.valid) {
-    // Silent block - don't reveal security details
     return res.status(400).json({ error: 'Invalid request' });
   }
 
@@ -76,23 +154,45 @@ export default async function handler(req, res) {
       });
     }
 
+    // Load tracking data
+    const trackingData = loadTrackingData();
+
+    // Check if email can use free trial
+    const checkResult = canUseFreeTrial(email, trackingData);
+
+    if (!checkResult.allowed) {
+      // Email used recently - deny access
+      return res.status(200).json({
+        success: false,
+        message: `This email has already used the free trial. Please try again in ${checkResult.daysRemaining} day(s) or purchase SSRT for full access.`,
+        daysRemaining: checkResult.daysRemaining,
+        lastUsed: checkResult.lastUsed
+      });
+    }
+
+    // Email can use free trial - record usage
+    const updatedTrackingData = recordEmailUsage(email, trackingData);
+    const saved = saveTrackingData(updatedTrackingData);
+
+    if (!saved) {
+      console.error('[ERROR] Failed to save email tracking data');
+      // Still grant access even if save fails (graceful degradation)
+    }
+
     // Log access (silent - user unaware)
     if (process.env.NODE_ENV === 'production') {
       const requestHash = quantumHash(JSON.stringify({ email: email.toLowerCase(), timestamp: Date.now() }));
-      console.log(`[QUANTUM_SECURITY] Try-free access: ${requestHash.substring(0, 16)}...`);
+      console.log(`[QUANTUM_SECURITY] Try-free access granted: ${requestHash.substring(0, 16)}...`);
     }
 
-    // Grant free access - simple implementation
-    // User gets free access once (as requested)
+    // Grant free access
     return res.status(200).json({ 
       success: true,
       message: 'Free access granted!',
-      // In production, you might want to track this in a database
-      // For now, we grant access immediately
+      reason: checkResult.reason
     });
 
   } catch (err) {
-    // Don't expose internal errors to potential attackers
     console.error('[QUANTUM_SECURITY] Try-free error:', err.message);
     return res.status(500).json({
       success: false,
@@ -100,4 +200,3 @@ export default async function handler(req, res) {
     });
   }
 }
-

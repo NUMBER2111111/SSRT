@@ -1,0 +1,20 @@
+# Email tracking data (contains user emails - do not commit)
+api/data/try-free-emails.json
+
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# Build outputs
+.next/
+.vercel/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
