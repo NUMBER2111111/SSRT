@@ -3,25 +3,28 @@
 <head><meta charset="utf-8"><title>SSRT Checkout</title></head>
 <body>
   <h1>SSRT</h1>
-  <button id="buy">Buy SSRT ($5)</button>
+  <button id="buy-ssrt" type="button">Buy SSRT ($5)</button>
   <pre id="out"></pre>
 
   <script>
-    const out = document.getElementById("out");
-    document.getElementById("buy").onclick = async () => {
-      out.textContent = "Creating checkout...";
-      const r = await fetch("/api/payment/create-link", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 500, currency: "USD", name: "SSRT" })
-      });
-      const data = await r.json();
-      if (!r.ok) {
-        out.textContent = JSON.stringify(data, null, 2);
-        return;
+    document.getElementById("buy-ssrt").addEventListener("click", async () => {
+      try {
+        const res = await fetch("/api/payment/create-link", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount: 500, currency: "USD", name: "SSRT" })
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Create-link failed");
+        if (!data.url) throw new Error("No payment URL returned");
+
+        window.location.href = data.url;
+      } catch (e) {
+        alert("Payment error: " + e.message);
+        console.error(e);
       }
-      window.location.href = data.url;
-    };
+    });
   </script>
 </body>
 </html>
