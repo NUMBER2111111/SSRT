@@ -16,6 +16,7 @@ export default async function handler(req, res) {
     }
 
     const idempotencyKey = crypto.randomUUID();
+    const locationId = process.env.SQUARE_LOCATION_ID.trim();
 
     const resp = await client.checkoutApi.createPaymentLink({
       idempotencyKey,
@@ -23,7 +24,7 @@ export default async function handler(req, res) {
         name: name || "SSRT",
         description: "SSRT Checkout",
         priceMoney: { amount, currency },
-        locationId: process.env.SQUARE_LOCATION_ID,
+        locationId: locationId,
       },
     });
 
