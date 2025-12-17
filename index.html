@@ -1,13 +1,145 @@
-<!doctype html>
-<html>
-<head><meta charset="utf-8"><title>SSRT Checkout</title></head>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSRT — Semantic Space Recovery Tool | Enterprise Disk Space Recovery</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
+    header { background: #fff; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    nav a, nav button { margin: 0 1rem; text-decoration: none; color: #333; background: none; border: none; cursor: pointer; }
+    .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero button, .hero a { display: inline-block; margin: 0.5rem; padding: 1rem 2rem; background: white; color: #667eea; border: none; border-radius: 5px; text-decoration: none; cursor: pointer; }
+    section { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .pricing-card { border: 2px solid #e0e0e0; border-radius: 8px; padding: 2rem; text-align: center; }
+    .pricing-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+    .pricing-card .price { font-size: 2rem; font-weight: bold; color: #667eea; margin: 1rem 0; }
+    .pricing-card ul { list-style: none; text-align: left; margin: 1rem 0; }
+    .pricing-card ul li { padding: 0.5rem 0; }
+    .pricing-card a, .pricing-card button { display: block; margin-top: 1rem; padding: 1rem; background: #667eea; color: white; text-decoration: none; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
+    .buy-button { background: #28a745 !important; font-size: 1.2rem; font-weight: bold; }
+    form { max-width: 600px; margin: 2rem auto; }
+    form label { display: block; margin: 1rem 0 0.5rem; font-weight: bold; }
+    form input, form select, form textarea { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
+    form button { margin-top: 1rem; padding: 1rem 2rem; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1rem; }
+    footer { background: #333; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+  </style>
+</head>
 <body>
-  <h1>SSRT</h1>
-  <button id="buy-ssrt" type="button">Buy SSRT ($5)</button>
-  <pre id="out"></pre>
+  <header>
+    <nav>
+      <div>
+        <a href="#engineering">Engineering</a>
+        <button>Try for Free</button>
+        <a href="#get-started">Get Started</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>SSRT isn't an upgrade — it's a breakthrough.</h1>
+    <button>Try for Free</button>
+    <a href="#pricing">View Pricing</a>
+  </section>
+
+  <section>
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">$29.99 LIFETIME ACCESS</h2>
+    <p style="text-align: center; color: #666;">First 500 Subscribers Only</p>
+    <p style="text-align: center; margin: 1rem 0;">This is not a subscription. This is LIFETIME ACCESS to SSRT forever.</p>
+    <p style="text-align: center; color: #28a745; font-weight: bold;">500 lifetime licenses remaining at this price!</p>
+    <div style="text-align: center; margin: 2rem 0;">
+      <button id="buy-ssrt" type="button" class="buy-button">Buy SSRT ($5)</button>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Pricing</h2>
+    <div class="pricing">
+      <div class="pricing-card">
+        <h3>Personal License</h3>
+        <p style="color: #666; margin-bottom: 1rem;">Limited to first 500 lifetime licenses</p>
+        <div class="price">$29.99</div>
+        <ul>
+          <li>• LIFETIME ACCESS - Own SSRT forever, no subscription</li>
+          <li>• Full SSRT system with all features</li>
+          <li>• Complete documentation</li>
+          <li>• Windows EXE + all platform builds</li>
+          <li>• Lifetime updates included</li>
+          <li>• Personal use license</li>
+          <li>• Email support</li>
+        </ul>
+        <a href="#payment">GET LIFETIME ACCESS</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Professional License</h3>
+        <div class="price">$199</div>
+        <ul>
+          <li>• Everything in Personal</li>
+          <li>• Commercial use license</li>
+          <li>• Priority support</li>
+          <li>• Custom installation</li>
+          <li>• Integration assistance</li>
+          <li>• 1 year of updates</li>
+        </ul>
+        <a href="#payment">Start Now</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise License</h3>
+        <div class="price">$999+</div>
+        <ul>
+          <li>• Everything in Professional</li>
+          <li>• Unlimited installation</li>
+          <li>• Dedicated support</li>
+          <li>• Custom modification</li>
+          <li>• Training & onboarding</li>
+          <li>• Lifetime updates</li>
+        </ul>
+        <a href="#payment">Start Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="payment">
+    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Get SSRT - Secure Payment</h2>
+    <p style="text-align: center; margin-bottom: 1rem;">Select your service tier and complete secure payment. Your SSRT download will be delivered immediately after payment confirmation.</p>
+    <p style="text-align: center; color: #666; margin-bottom: 2rem;">Secure payment processing via Square. All downloads include enterprise-grade security and triple redundancy.</p>
+    
+    <form>
+      <label for="name">Company / Name</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="tier">Service Tier</label>
+      <select id="tier" name="tier" required>
+        <option value="personal-29.99">Personal License - LIFETIME ACCESS $29.99 (First 500 Only)</option>
+        <option value="personal-49">Personal License - $49</option>
+        <option value="professional-199">Professional License - $199</option>
+        <option value="enterprise-999">Enterprise License - $999+</option>
+      </select>
+      
+      <label for="description">What does your system do?</label>
+      <textarea id="description" name="description" rows="4"></textarea>
+      
+      <button type="button" id="buy-ssrt-form" class="buy-button">Proceed to Payment</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>SSRT - Semantic Space Recovery Tool</p>
+    <p>Created by The Cognitive Rebel | Part of AcuTriOne Sovereign System</p>
+    <p>Questions or comments? support@acutrione.com</p>
+    <p>Proprietary License - All Rights Reserved</p>
+  </footer>
 
   <script>
-    document.getElementById("buy-ssrt").addEventListener("click", async () => {
+    // Buy button script for both buttons
+    const buyButtonHandler = async () => {
       try {
         const res = await fetch("/api/payment/create-link", {
           method: "POST",
@@ -24,7 +156,11 @@
         alert("Payment error: " + e.message);
         console.error(e);
       }
-    });
+    };
+
+    // Attach to both buy buttons
+    document.getElementById("buy-ssrt")?.addEventListener("click", buyButtonHandler);
+    document.getElementById("buy-ssrt-form")?.addEventListener("click", buyButtonHandler);
   </script>
 </body>
 </html>
