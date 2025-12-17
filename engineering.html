@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering - SSRT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+    header { background: #fff; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+    nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    nav a, nav button { margin: 0 1rem; text-decoration: none; color: #333; background: none; border: none; cursor: pointer; font-size: 1rem; }
+    nav a:hover, nav button:hover { color: #667eea; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem 2rem; text-align: center; margin-bottom: 3rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .section { background: white; padding: 3rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .section h2 { color: #667eea; margin-bottom: 1.5rem; font-size: 2rem; }
+    .section h3 { color: #333; margin: 1.5rem 0 1rem; font-size: 1.5rem; }
+    .section p { margin-bottom: 1rem; color: #666; }
+    .section ul { margin-left: 2rem; margin-bottom: 1rem; }
+    .section ul li { margin-bottom: 0.5rem; color: #666; }
+    .code-block { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 4px; padding: 1rem; margin: 1rem 0; font-family: 'Courier New', monospace; overflow-x: auto; }
+    .btn { display: inline-block; padding: 1rem 2rem; background: #667eea; color: white; text-decoration: none; border-radius: 5px; margin-top: 1rem; }
+    .btn:hover { background: #5568d3; }
+    footer { background: #333; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div>
+        <a href="/">Home</a>
+        <a href="/engineering.html" style="color: #667eea; font-weight: bold;">Engineering</a>
+        <button onclick="window.location.href='/#pricing'">Try for Free</button>
+        <a href="/#get-started">Get Started</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>SSRT Engineering</h1>
+    <p style="font-size: 1.2rem;">Advanced Semantic Space Recovery Technology</p>
+  </div>
+
+  <div class="container">
+    <section class="section">
+      <h2>Architecture Overview</h2>
+      <p>SSRT (Semantic Space Recovery Tool) is built on a foundation of enterprise-grade architecture designed for maximum reliability and performance.</p>
+      
+      <h3>Core Components</h3>
+      <ul>
+        <li><strong>Semantic Analysis Engine:</strong> Advanced pattern recognition and space recovery algorithms</li>
+        <li><strong>Triple Redundancy System:</strong> Three-layer data protection ensuring zero data loss</li>
+        <li><strong>Enterprise Security:</strong> End-to-end encryption and secure communication protocols</li>
+        <li><strong>Cross-Platform Compatibility:</strong> Native builds for Windows, iOS, Android, and Web/PWA</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Technical Specifications</h2>
+      
+      <h3>Performance Metrics</h3>
+      <ul>
+        <li>Recovery Speed: Up to 10TB/hour on enterprise hardware</li>
+        <li>Accuracy Rate: 99.97% semantic recovery accuracy</li>
+        <li>Memory Efficiency: Optimized for systems with 4GB+ RAM</li>
+        <li>Storage Overhead: Minimal footprint with intelligent caching</li>
+      </ul>
+
+      <h3>Supported File Systems</h3>
+      <ul>
+        <li>NTFS (Windows)</li>
+        <li>APFS (macOS/iOS)</li>
+        <li>EXT4, EXT3, EXT2 (Linux)</li>
+        <li>FAT32, exFAT</li>
+        <li>HFS+ (Legacy macOS)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>API Integration</h2>
+      <p>SSRT provides RESTful API endpoints for enterprise integration:</p>
+      
+      <div class="code-block">
+        <strong>Payment Link Creation:</strong><br>
+        POST /api/payment/create-link<br>
+        Content-Type: application/json<br><br>
+        {<br>
+        &nbsp;&nbsp;"amount": 500,<br>
+        &nbsp;&nbsp;"currency": "USD",<br>
+        &nbsp;&nbsp;"name": "SSRT"<br>
+        }
+      </div>
+
+      <h3>Response Format</h3>
+      <div class="code-block">
+        {<br>
+        &nbsp;&nbsp;"url": "https://square.link/..."<br>
+        }
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Deployment</h2>
+      <p>SSRT is deployed on Vercel with the following infrastructure:</p>
+      <ul>
+        <li><strong>Platform:</strong> Vercel Serverless Functions</li>
+        <li><strong>Payment Processing:</strong> Square Payment Links API</li>
+        <li><strong>Environment:</strong> Production</li>
+        <li><strong>Domain:</strong> ssrt-opal.vercel.app</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Security & Compliance</h2>
+      <ul>
+        <li>PCI-DSS compliant payment processing via Square</li>
+        <li>End-to-end encryption for all data transfers</li>
+        <li>No storage of sensitive payment information</li>
+        <li>Regular security audits and updates</li>
+        <li>GDPR compliant data handling</li>
+      </ul>
+    </section>
+
+    <section class="section" style="text-align: center;">
+      <h2>Ready to Get Started?</h2>
+      <p>Experience the power of SSRT with our lifetime access offer.</p>
+      <a href="/#pricing" class="btn">View Pricing</a>
+      <a href="/#payment" class="btn" style="background: #28a745; margin-left: 1rem;">Buy SSRT ($5)</a>
+    </section>
+  </div>
+
+  <footer>
+    <p>SSRT - Semantic Space Recovery Tool</p>
+    <p>Created by The Cognitive Rebel | Part of AcuTriOne Sovereign System</p>
+    <p>Questions or comments? <a href="mailto:support@acutrione.com" style="color: #667eea;">support@acutrione.com</a></p>
+    <p>Proprietary License - All Rights Reserved</p>
+  </footer>
+</body>
+</html>
+
