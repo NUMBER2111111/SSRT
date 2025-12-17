@@ -1,140 +1,204 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SSRT — Semantic Space Recovery Tool | Enterprise Disk Space Recovery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
-    header { background: #fff; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-    nav a, nav button { margin: 0 1rem; text-decoration: none; color: #333; background: none; border: none; cursor: pointer; }
-    .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero button, .hero a { display: inline-block; margin: 0.5rem; padding: 1rem 2rem; background: white; color: #667eea; border: none; border-radius: 5px; text-decoration: none; cursor: pointer; }
-    section { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
-    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .pricing-card { border: 2px solid #e0e0e0; border-radius: 8px; padding: 2rem; text-align: center; }
-    .pricing-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-    .pricing-card .price { font-size: 2rem; font-weight: bold; color: #667eea; margin: 1rem 0; }
-    .pricing-card ul { list-style: none; text-align: left; margin: 1rem 0; }
-    .pricing-card ul li { padding: 0.5rem 0; }
-    .pricing-card a, .pricing-card button { display: block; margin-top: 1rem; padding: 1rem; background: #667eea; color: white; text-decoration: none; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
-    .buy-button { background: #28a745 !important; font-size: 1.2rem; font-weight: bold; }
-    form { max-width: 600px; margin: 2rem auto; }
-    form label { display: block; margin: 1rem 0 0.5rem; font-weight: bold; }
-    form input, form select, form textarea { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
-    form button { margin-top: 1rem; padding: 1rem 2rem; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1.1rem; }
-    footer { background: #333; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+    .buy-button { background: #28a745 !important; }
   </style>
 </head>
-<body>
-  <header>
-    <nav>
-      <div>
-        <a href="/engineering.html">Engineering</a>
-        <button onclick="window.location.href='/#pricing'">Try for Free</button>
-        <a href="/#payment">Get Started</a>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-6">
+        <a href="/engineering.html" class="text-gray-700 hover:text-gray-900">Engineering</a>
+        <button onclick="window.location.href='/#pricing'" class="text-green-600 hover:text-green-700 border border-green-600 px-4 py-2 rounded">Try for Free</button>
+        <a href="/#payment" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Get Started</a>
       </div>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>SSRT isn't an upgrade — it's a breakthrough.</h1>
-    <button onclick="window.location.href='#pricing'">Try for Free</button>
-    <a href="#pricing">View Pricing</a>
-  </section>
-
-  <section>
-    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">$29.99 LIFETIME ACCESS</h2>
-    <p style="text-align: center; color: #666;">First 500 Subscribers Only</p>
-    <p style="text-align: center; margin: 1rem 0;">This is not a subscription. This is LIFETIME ACCESS to SSRT forever.</p>
-    <p style="text-align: center; color: #28a745; font-weight: bold;">500 lifetime licenses remaining at this price!</p>
-    <div style="text-align: center; margin: 2rem 0;">
-      <button id="buy-ssrt" type="button" class="buy-button">Buy SSRT ($5)</button>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Pricing</h2>
-    <div class="pricing">
-      <div class="pricing-card">
-        <h3>Personal License</h3>
-        <p style="color: #666; margin-bottom: 1rem;">Limited to first 500 lifetime licenses</p>
-        <div class="price">$29.99</div>
-        <ul>
-          <li>• LIFETIME ACCESS - Own SSRT forever, no subscription</li>
-          <li>• Full SSRT system with all features</li>
-          <li>• Complete documentation</li>
-          <li>• Windows EXE + all platform builds</li>
-          <li>• Lifetime updates included</li>
-          <li>• Personal use license</li>
-          <li>• Email support</li>
-        </ul>
-        <a href="#payment">GET LIFETIME ACCESS</a>
-      </div>
-      <div class="pricing-card">
-        <h3>Professional License</h3>
-        <div class="price">$199</div>
-        <ul>
-          <li>• Everything in Personal</li>
-          <li>• Commercial use license</li>
-          <li>• Priority support</li>
-          <li>• Custom installation</li>
-          <li>• Integration assistance</li>
-          <li>• 1 year of updates</li>
-        </ul>
-        <a href="#payment">Start Now</a>
-      </div>
-      <div class="pricing-card">
-        <h3>Enterprise License</h3>
-        <div class="price">$999+</div>
-        <ul>
-          <li>• Everything in Professional</li>
-          <li>• Unlimited installation</li>
-          <li>• Dedicated support</li>
-          <li>• Custom modification</li>
-          <li>• Training & onboarding</li>
-          <li>• Lifetime updates</li>
-        </ul>
-        <a href="#payment">Start Now</a>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-purple-600 to-purple-800 text-white text-center py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-5xl font-bold mb-6">SSRT isn't an upgrade — it's a breakthrough.</h1>
+      <div class="space-x-4">
+        <button onclick="window.location.href='#pricing'" class="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">Try for Free</button>
+        <a href="#pricing" class="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 inline-block">View Pricing</a>
       </div>
     </div>
   </section>
 
-  <section id="payment">
-    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Get SSRT - Secure Payment</h2>
-    <p style="text-align: center; margin-bottom: 1rem;">Select your service tier and complete secure payment. Your SSRT download will be delivered immediately after payment confirmation.</p>
-    <p style="text-align: center; color: #666; margin-bottom: 2rem;">Secure payment processing via Square. All downloads include enterprise-grade security and triple redundancy.</p>
-    
-    <form>
-      <label for="name">Company / Name</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-      
-      <label for="tier">Service Tier</label>
-      <select id="tier" name="tier" required>
-        <option value="personal-29.99">Personal License - LIFETIME ACCESS $29.99 (First 500 Only)</option>
-        <option value="personal-49">Personal License - $49</option>
-        <option value="professional-199">Professional License - $199</option>
-        <option value="enterprise-999">Enterprise License - $999+</option>
-      </select>
-      
-      <label for="description">What does your system do?</label>
-      <textarea id="description" name="description" rows="4"></textarea>
-      
-      <button type="button" id="buy-ssrt-form" class="buy-button">Proceed to Payment</button>
-    </form>
+  <!-- Lifetime Access Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-4">$29.99 LIFETIME ACCESS</h2>
+      <p class="text-gray-600 mb-2">First 500 Subscribers Only</p>
+      <p class="text-lg mb-4">This is not a subscription. This is LIFETIME ACCESS to SSRT forever.</p>
+      <p class="text-green-600 font-bold text-xl mb-8">500 lifetime licenses remaining at this price!</p>
+      <button id="buy-ssrt" type="button" class="buy-button text-white px-12 py-4 rounded-lg text-xl font-bold">Buy SSRT ($5)</button>
+    </div>
   </section>
 
-  <footer>
-    <p>SSRT - Semantic Space Recovery Tool</p>
-    <p>Created by The Cognitive Rebel | Part of AcuTriOne Sovereign System</p>
-    <p>Questions or comments? <a href="mailto:support@acutrione.com" style="color: #667eea;">support@acutrione.com</a></p>
-    <p>Proprietary License - All Rights Reserved</p>
+  <!-- Try for Free Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Try SSRT for Free</h2>
+      <p class="text-gray-600 mb-6">Try SSRT for free. One trial per week per email.</p>
+      <button onclick="window.location.href='#pricing'" class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700">Try for Free Now</button>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">Pricing</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Personal License -->
+        <div class="border-2 border-gray-200 rounded-lg p-8 text-center">
+          <h3 class="text-2xl font-bold mb-4">Personal License</h3>
+          <p class="text-gray-600 mb-4">Limited to first 500 lifetime licenses</p>
+          <div class="text-4xl font-bold text-purple-600 mb-6">$29.99</div>
+          <ul class="text-left space-y-2 mb-6">
+            <li>• LIFETIME ACCESS - Own SSRT forever, no subscription</li>
+            <li>• Full SSRT system with all features</li>
+            <li>• Complete documentation</li>
+            <li>• Windows EXE + all platform builds</li>
+            <li>• Lifetime updates included</li>
+            <li>• Personal use license</li>
+            <li>• Email support</li>
+          </ul>
+          <a href="#payment" class="block bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700">GET LIFETIME ACCESS</a>
+        </div>
+        <!-- Professional License -->
+        <div class="border-2 border-gray-200 rounded-lg p-8 text-center">
+          <h3 class="text-2xl font-bold mb-4">Professional License</h3>
+          <div class="text-4xl font-bold text-purple-600 mb-6">$199</div>
+          <ul class="text-left space-y-2 mb-6">
+            <li>• Everything in Personal</li>
+            <li>• Commercial use license</li>
+            <li>• Priority support</li>
+            <li>• Custom installation</li>
+            <li>• Integration assistance</li>
+            <li>• 1 year of updates</li>
+          </ul>
+          <a href="#payment" class="block bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700">Start Now</a>
+        </div>
+        <!-- Enterprise License -->
+        <div class="border-2 border-gray-200 rounded-lg p-8 text-center">
+          <h3 class="text-2xl font-bold mb-4">Enterprise License</h3>
+          <div class="text-4xl font-bold text-purple-600 mb-6">$999+</div>
+          <ul class="text-left space-y-2 mb-6">
+            <li>• Everything in Professional</li>
+            <li>• Unlimited installation</li>
+            <li>• Dedicated support</li>
+            <li>• Custom modification</li>
+            <li>• Training & onboarding</li>
+            <li>• Lifetime updates</li>
+          </ul>
+          <a href="#payment" class="block bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700">Start Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- See SSRT In Action -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">See SSRT In Action</h2>
+      <p class="text-gray-600 mb-6">Try SSRT for free and see exactly what you'll get. No payment required.</p>
+      <button onclick="window.location.href='#pricing'" class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700">Try for Free</button>
+    </div>
+  </section>
+
+  <!-- Download SSRT Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4">Download SSRT</h2>
+      <p class="text-center text-gray-600 mb-8">Get SSRT for your platform. All versions include triple redundancy and enterprise-grade security.</p>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <h3 class="text-xl font-bold mb-2">Windows</h3>
+          <p class="text-gray-600 mb-2">Native Windows desktop application</p>
+          <a href="#" class="text-purple-600 hover:underline">Download .exe</a>
+          <p class="text-sm text-gray-500 mt-2">Windows 10/11</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-bold mb-2">iOS</h3>
+          <p class="text-gray-600 mb-2">Native iOS app - Direct download</p>
+          <a href="#" class="text-purple-600 hover:underline">Download .ipa</a>
+          <p class="text-sm text-gray-500 mt-2">iOS 15+</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-bold mb-2">Android</h3>
+          <p class="text-gray-600 mb-2">Native Android app - Direct download</p>
+          <a href="#" class="text-purple-600 hover:underline">Download .apk</a>
+          <p class="text-sm text-gray-500 mt-2">Android 7.0+</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-bold mb-2">Web/PWA</h3>
+          <p class="text-gray-600 mb-2">Progressive Web App - works everywhere</p>
+          <a href="#" class="text-purple-600 hover:underline">Install PWA</a>
+          <p class="text-sm text-gray-500 mt-2">All browsers</p>
+        </div>
+      </div>
+      <div class="mt-8 text-center">
+        <h3 class="text-xl font-bold mb-4">Additional Download</h3>
+        <a href="#" class="text-purple-600 hover:underline">Documentation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Form Section -->
+  <section id="payment" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <h2 class="text-4xl font-bold text-center mb-4">Get SSRT - Secure Payment</h2>
+      <p class="text-center text-gray-600 mb-2">Select your service tier and complete secure payment. Your SSRT download will be delivered immediately after payment confirmation.</p>
+      <p class="text-center text-gray-500 mb-8">Secure payment processing via Square. All downloads include enterprise-grade security and triple redundancy.</p>
+      <p class="text-center text-gray-600 mb-6">Questions or comments? <a href="mailto:support@acutrione.com" class="text-purple-600 hover:underline">support@acutrione.com</a></p>
+      
+      <form class="bg-white p-8 rounded-lg shadow-lg">
+        <div class="mb-4">
+          <label for="name" class="block font-semibold mb-2">Company / Name</label>
+          <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+        </div>
+        
+        <div class="mb-4">
+          <label for="email" class="block font-semibold mb-2">Email</label>
+          <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+        </div>
+        
+        <div class="mb-4">
+          <label for="tier" class="block font-semibold mb-2">Service Tier</label>
+          <select id="tier" name="tier" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+            <option value="personal-29.99">Personal License - LIFETIME ACCESS $29.99 (First 500 Only)</option>
+            <option value="personal-49">Personal License - $49</option>
+            <option value="professional-199">Professional License - $199</option>
+            <option value="enterprise-999">Enterprise License - $999+</option>
+          </select>
+        </div>
+        
+        <div class="mb-6">
+          <label for="description" class="block font-semibold mb-2">What does your system do?</label>
+          <textarea id="description" name="description" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent"></textarea>
+        </div>
+        
+        <button type="button" id="buy-ssrt-form" class="buy-button w-full text-white py-4 rounded-lg text-xl font-bold">Proceed to Payment</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="mb-2">SSRT - Semantic Space Recovery Tool</p>
+      <p class="mb-2">Created by The Cognitive Rebel | Part of AcuTriOne Sovereign System</p>
+      <p class="mb-2">Questions or comments? <a href="mailto:support@acutrione.com" class="text-purple-400 hover:underline">support@acutrione.com</a></p>
+      <p>Proprietary License - All Rights Reserved</p>
+    </div>
   </footer>
 
   <script>
@@ -164,4 +228,3 @@
   </script>
 </body>
 </html>
-
